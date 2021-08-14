@@ -8,6 +8,13 @@ CREATE TABLE IF NOT EXISTS User (
     email VARCHAR(255) NOT NULL
 )ENGINE=INNODB;
 
+
 -- INSERT ROWS INTO USER TABLE
 INSERT INTO User VALUES  
-(1, 'admin', '123', 'ghjihad@outlook.com');
+(1, 'admin', '123', 'test@gmail.com');
+
+
+-- SELECT * FROM User;
+
+
+

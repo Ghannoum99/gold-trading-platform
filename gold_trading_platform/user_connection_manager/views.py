@@ -52,17 +52,29 @@ def login(request):
         return HttpResponse('MultiValueDictKeyError')
 
 
+# GETTING THE LAST USER_ID
+def get_last_user_id():
+    cursor = connection.cursor()
+    cursor.execute("""SELECT user_id FROM User ORDER BY user_id DESC""")
+    user_id = str(cursor.fetchone()).replace(',', '')
+    user_id = user_id.translate(str.maketrans(dict.fromkeys("[('')]")))
+    return int(user_id)
+
+
 # REGISTRATION FUNCTION
 def register(request):
     try:
+        user_id = int(get_last_user_id()) + 1
+        sql_command = "INSERT INTO User VALUES (2, %s, %s, %s)"
         username = request.GET['username']
         email = request.GET['email']
         password = request.GET['password']
         password_confirmation = request.GET['password_conf']
+
         if password == password_confirmation:
+            val = (username, password, email)
             cursor = connection.cursor()
-            cursor.execute("""INSERT INTO User VALUES (username, password, email)
-            (?, ?, ?)""", username, password, email)
+            cursor.execute(sql_command, val)
             return HttpResponse('<h1>Registered</h1>')
         else:
             return HttpResponse('passwords do not match')
