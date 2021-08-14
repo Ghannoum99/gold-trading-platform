@@ -15,32 +15,39 @@ def index(request):
 
 # GETTING USERS FROM DB
 def get_users_db():
-    pass
+    username_list = []
+    password_list = []
+    cursor = connection.cursor()
+    cursor.execute("""SELECT username, password FROM User """)
+    data = cursor.fetchall()
+
+    for row in data:
+        username_list.append(row[0])
+        password_list.append(row[1])
+
+    user = dict(zip(username_list, password_list))
+    return user
 
 
 # LOGIN FUNCTION
 def login(request):
     try:
-        username_list = []
-        password_list = []
+        connected = False
+        user = get_users_db()
 
         username = request.GET['username']
         password = request.GET['password']
 
-        cursor = connection.cursor()
-        data = cursor.execute("""SELECT username, password FROM User """)
-        
-        for row in data:
-            username_list.append(row[0])
-            password_list.append(row[1])
-
-        user = dict(zip(username_list, password_list))
-
         for key, value in user.items():
             if username == key and password == value:
-                return HttpResponse('<h1>Connected<h1>')
-            else:
-                return HttpResponse('Wrong username or password')
+                connected = True
+                break
+
+        if connected:
+            return HttpResponse('<h1>Connected</h1>')
+        else:
+            return HttpResponse('<h1>Wrong username or password</h1>')
+
     except MultiValueDictKeyError:
         return HttpResponse('MultiValueDictKeyError')
 
