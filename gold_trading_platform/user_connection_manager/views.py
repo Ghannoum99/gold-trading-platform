@@ -54,5 +54,20 @@ def login(request):
 
 # REGISTRATION FUNCTION
 def register(request):
-    pass
+    try:
+        username = request.GET['username']
+        email = request.GET['email']
+        password = request.GET['password']
+        password_confirmation = request.GET['password_conf']
+        if password == password_confirmation:
+            cursor = connection.cursor()
+            cursor.execute("""INSERT INTO User VALUES (username, password, email)
+            (?, ?, ?)""", username, password, email)
+            return HttpResponse('<h1>Registered</h1>')
+        else:
+            return HttpResponse('passwords do not match')
+
+    except MultiValueDictKeyError:
+        return HttpResponse('MultiValueDictKeyError')
+
 

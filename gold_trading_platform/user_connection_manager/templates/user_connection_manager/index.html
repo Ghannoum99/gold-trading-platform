@@ -31,12 +31,13 @@
         </div>
         <div class="user signupBx">
             <div class="formBx">
-                <form action="" onsubmit="return false;">
+                <form method='GET' action="{% url 'register' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
                     <h2>Create an account</h2>
-                    <input type="text" name="" placeholder="Username" />
-                    <input type="email" name="" placeholder="Email Address" />
-                    <input type="password" name="" placeholder="Create Password" />
-                    <input type="password" name="" placeholder="Confirm Password" />
+                    <input type="text" name="username" placeholder="Username" />
+                    <input type="email" name="email" placeholder="Email Address" />
+                    <input type="password" name="password" placeholder="Create Password" />
+                    <input type="password" name="password_conf" placeholder="Confirm Password" />
                     <input type="submit" name="" value="Sign Up" />
                     <p class="signup">
                         Already have an account ?
