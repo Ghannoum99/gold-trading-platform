@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <script src="{% static '/js/script.js' %}"></script>
+</head>
+<body>
+<section>
+    <div class="container">
+        <div class="user signinBx">
+            <div class="imgBx">
+                <img src="https://i.pinimg.com/564x/fa/3b/3e/fa3b3e9f25fe4cf32de67013ce6c0dd6.jpg" alt="" />
+            </div>
+            <div class="formBx">
+                <form action="{% url 'login' %}" onsubmit="return false;">
+                    <h2>Sign In</h2>
+                    <input type="text" name="username" placeholder="Username" />
+                    <input type="password" name="password" placeholder="Password" />
+                    <input type="submit" value="Login" />
+                    <p class="signup">
+                        Don't have an account ?
+                        <a href="#" onclick="toggleForm();">Sign Up.</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+        <div class="user signupBx">
+            <div class="formBx">
+                <form action="" onsubmit="return false;">
+                    <h2>Create an account</h2>
+                    <input type="text" name="" placeholder="Username" />
+                    <input type="email" name="" placeholder="Email Address" />
+                    <input type="password" name="" placeholder="Create Password" />
+                    <input type="password" name="" placeholder="Confirm Password" />
+                    <input type="submit" name="" value="Sign Up" />
+                    <p class="signup">
+                        Already have an account ?
+                        <a href="#" onclick="toggleForm();">Sign in.</a>
+                    </p>
+                </form>
+            </div>
+            <div class="imgBx">
+                <img src="https://i.pinimg.com/564x/1a/91/e9/1a91e91f03485141edb67153e65cd06a.jpg" alt="" />
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
