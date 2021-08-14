@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home</title>
     <link rel="stylesheet" href="{% static '/css/style.css' %}">
     <script src="{% static '/js/script.js' %}"></script>
@@ -15,7 +16,8 @@
                 <img src="https://i.pinimg.com/564x/fa/3b/3e/fa3b3e9f25fe4cf32de67013ce6c0dd6.jpg" alt="" />
             </div>
             <div class="formBx">
-                <form action="{% url 'login' %}" onsubmit="return false;">
+                <form method='GET' action="{% url 'login' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
                     <h2>Sign In</h2>
                     <input type="text" name="username" placeholder="Username" />
                     <input type="password" name="password" placeholder="Password" />
