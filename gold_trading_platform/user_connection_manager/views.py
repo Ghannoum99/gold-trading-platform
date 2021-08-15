@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.db import connection
+from .models import User
 
 
 # Create your views here.
@@ -72,6 +73,7 @@ def get_taken_username():
     username_list = data.split(',')
     return username_list
 
+
 # CHECK IF USERNAME ALREADY EXIST
 def check_if_username_taken(username, username_list):
     taken = False
@@ -80,6 +82,7 @@ def check_if_username_taken(username, username_list):
             taken = True
 
     return taken
+
 
 # REGISTRATION FUNCTION
 def register(request):
