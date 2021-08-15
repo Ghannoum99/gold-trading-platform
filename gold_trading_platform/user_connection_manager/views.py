@@ -17,8 +17,9 @@ def index(request):
 def get_users_db():
     username_list = []
     password_list = []
+
     cursor = connection.cursor()
-    cursor.execute("""SELECT username, password FROM User """)
+    cursor.execute("""SELECT username, password, type FROM User """)
     data = cursor.fetchall()
 
     for row in data:
@@ -37,14 +38,14 @@ def login(request):
 
         username = request.GET['username']
         password = request.GET['password']
-
+        get_taken_username()
         for key, value in user.items():
             if username == key and password == value:
                 connected = True
                 break
 
         if connected:
-            return HttpResponse('<h1>Connected</h1>')
+            return render(request,'user_connection_manager/admin_dashboard.html')
         else:
             return HttpResponse('<h1>Wrong username or password</h1>')
 
@@ -61,25 +62,47 @@ def get_last_user_id():
     return int(user_id)
 
 
+# GETTING THE USERNAME FROM DB
+def get_taken_username():
+    username_list = []
+    cursor = connection.cursor()
+    cursor.execute("""SELECT username FROM User ORDER BY user_id DESC""")
+    data = str(cursor.fetchall())
+    data = data.translate(str.maketrans(dict.fromkeys("[('')]")))
+    username_list = data.split(',')
+    return username_list
+
+# CHECK IF USERNAME ALREADY EXIST
+def check_if_username_taken(username, username_list):
+    taken = False
+    for user_name in username_list:
+        if user_name == username:
+            taken = True
+
+    return taken
+
 # REGISTRATION FUNCTION
 def register(request):
     try:
-        user_id = int(get_last_user_id()) + 1
-        sql_command = "INSERT INTO User VALUES (2, %s, %s, %s)"
+        user_id = get_last_user_id() + 1
+        sql_command = "INSERT INTO User (user_id, username, password, email) " \
+                      "VALUES (%s, %s, %s, %s)"
         username = request.GET['username']
         email = request.GET['email']
         password = request.GET['password']
-        password_confirmation = request.GET['password_conf']
+        confirm_password = request.GET['confirm_pass']
 
-        if password == password_confirmation:
-            val = (username, password, email)
+        if check_if_username_taken(username, get_taken_username()):
+            return HttpResponse('<h1>Username Already Taken</h1>')
+        elif password == confirm_password:
+            val = (user_id, username, password, email)
             cursor = connection.cursor()
             cursor.execute(sql_command, val)
             return HttpResponse('<h1>Registered</h1>')
         else:
-            return HttpResponse('passwords do not match')
+            return HttpResponse('<h1>passwords do not match</h1>')
 
     except MultiValueDictKeyError:
-        return HttpResponse('MultiValueDictKeyError')
+        return HttpResponse('<h1>MultiValueDictKeyError</h1>')
 
 
