@@ -1,8 +1,12 @@
 # Weather Desktop App using Django
 
-
+## Login Page
 <div>
-     <img src="https://github.com/Ghannoum99/django-weather-app/blob/main/Weather_app.png">
+     <img src="https://github.com/Ghannoum99/gold-trading-platform/blob/main/login-image.jpeg">
+</div>
+## SignUp Page
+<div>
+     <img src="https://github.com/Ghannoum99/gold-trading-platform/blob/main/login-image.jpeg">
 </div>
 
 ## Setup
