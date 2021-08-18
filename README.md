@@ -1,7 +1,12 @@
 # gold-trading-platform
 
+## Login Page
 <div>
      <img src="https://github.com/Ghannoum99/gold-trading-platform/blob/main/login-image.jpeg">
+</div>
+
+## SignUp Page
+<div>
      <img src="https://github.com/Ghannoum99/gold-trading-platform/blob/main/signup-image.jpeg">
 </div>
 
