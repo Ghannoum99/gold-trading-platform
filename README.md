@@ -5,7 +5,7 @@
      <img src="https://github.com/Ghannoum99/gold-trading-platform/blob/main/login-image.jpeg">
 </div>
 
-## SignUp Page
+## Sign Up Page
 <div>
      <img src="https://github.com/Ghannoum99/gold-trading-platform/blob/main/signup-image.jpeg">
 </div>
