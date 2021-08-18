@@ -1,3 +1,7 @@
+import json
+import urllib
+
+from django.utils.datastructures import MultiValueDictKeyError
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.db import connection
@@ -7,12 +11,12 @@ from .models import User
 # Create your views here.
 
 # AUTHENTICATION PAGE
-from django.utils.datastructures import MultiValueDictKeyError
-
-
 def index(request):
     return render(request, 'user_connection_manager/index.html')
 
+
+def get_profile(request):
+    return render(request, 'user_connection_manager/user_profile.html')
 
 # GETTING USERS FROM DB
 def get_users_db():

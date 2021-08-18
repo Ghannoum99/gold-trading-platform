@@ -34,10 +34,10 @@
                 <form method='GET' action="{% url 'register' %}" enctype="multipart/form-data">
                     {% csrf_token %}
                     <h2>Create an account</h2>
-                    <input type="text" name="username" placeholder="Username" />
-                    <input type="email" name="email" placeholder="Email Address" />
-                    <input type="password" name="password" placeholder="Create Password" />
-                    <input type="password" name="confirm_pass" placeholder="Confirm Password" />
+                    <input type="text" name="username" placeholder="Username" required/>
+                    <input type="email" name="email" placeholder="Email Address" required/>
+                    <input type="password" name="password" placeholder="Create Password" required/>
+                    <input type="password" name="confirm_pass" placeholder="Confirm Password" required />
                     <input type="submit" value="Sign Up" />
                     <p class="signup">
                         Already have an account ?
