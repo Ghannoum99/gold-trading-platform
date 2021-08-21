@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>gold-rate</title>
+    <link rel="stylesheet" href="{% static '/css/product_style.css' %}">
+</head>
+<body>
+<div class="listing-section">
+  <div class="product">
+    <div class="image-box">
+      <div class="images" id="image-1"></div>
+    </div>
+    <div class="text-box">
+        {% if metal and price and bid and ask %}
+        <form method="GET" action="{% url 'add-to-cart' %}">
+            {% csrf_token %}
+            <h2 class="item">Gold {{metal}}</h2>
+            <object class="price" name="price">price: {{price}} $</object>
+            <h3 class="price">Bid: {{bid}}</h3>
+            <h3 class="price">Ask: {{ask}}</h3>
+            <object class="price" name="price">price: {{price}} $</object>
+            <label for="item-1-quantity">Quantity:</label>
+            <input type="text" name="quantity" id="item-1-quantity" value="1">
+            <button name="button" id="item-1-button">Add to Cart</button>
+        </form>
+        {% endif %}
+    </div>
+  </div>
+</div>
+</body>
+</html>

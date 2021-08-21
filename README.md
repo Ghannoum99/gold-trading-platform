@@ -1,15 +1,9 @@
-# gold-trading-platform
+# Weather Desktop App using Django
 
-## Login Page
+
 <div>
-     <img src="https://github.com/Ghannoum99/gold-trading-platform/blob/main/login-image.jpeg">
+     <img src="https://github.com/Ghannoum99/django-weather-app/blob/main/Weather_app.png">
 </div>
-
-## Sign Up Page
-<div>
-     <img src="https://github.com/Ghannoum99/gold-trading-platform/blob/main/signup-image.jpeg">
-</div>
-
 
 ## Setup
 
@@ -42,3 +36,4 @@ Once `pip` has finished downloading the dependencies:
 ```
 And navigate to `http://127.0.0.1:8000/`.
 
+# gold-trading-platform

@@ -1,6 +1,5 @@
 import json
 import urllib
-
 from django.utils.datastructures import MultiValueDictKeyError
 from django.http import HttpResponse
 from django.shortcuts import render
@@ -64,8 +63,10 @@ def get_last_user_id():
     cursor.execute("""SELECT user_id FROM User ORDER BY user_id DESC""")
     user_id = str(cursor.fetchone()).replace(',', '')
     user_id = user_id.translate(str.maketrans(dict.fromkeys("[('')]")))
-    return int(user_id)
-
+    if user_id == 'None':
+        return 0
+    else:
+        return int(user_id)
 
 # GETTING THE USERNAME FROM DB
 def get_taken_username():
