@@ -1,8 +1,5 @@
 # gold-trading-platform
 
-
-
-
 ## Setup
 
 The first thing to do is to clone the repository:
@@ -29,9 +26,8 @@ session operates in a virtual environment set up by `virtualenv2`.
 
 Once `pip` has finished downloading the dependencies:
 ```sh
-(env)$ cd gold-trading-platform
+(env)$ cd gold_trading_platform
 (env)$ python manage.py runserver
 ```
 And navigate to `http://127.0.0.1:8000/`.
 
-# gold-trading-platform
