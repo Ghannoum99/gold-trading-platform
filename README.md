@@ -1,9 +1,7 @@
-# Weather Desktop App using Django
+# gold-trading-platform
 
 
-<div>
-     <img src="https://github.com/Ghannoum99/django-weather-app/blob/main/Weather_app.png">
-</div>
+
 
 ## Setup
 
