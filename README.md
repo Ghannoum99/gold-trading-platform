@@ -1,5 +1,10 @@
 # gold-trading-platform
 
+## Log In
+<div>
+  <img src="https://github.com/Ghannoum99/gold-trading-platform/blob/main/login-image.jpeg">
+</div>
+
 ## Setup
 
 The first thing to do is to clone the repository:
