@@ -5,6 +5,11 @@
   <img src="https://github.com/Ghannoum99/gold-trading-platform/blob/main/login-image.jpeg">
 </div>
 
+## Sign Up
+<div>
+  <img src="https://github.com/Ghannoum99/gold-trading-platform/blob/main/signup-image.jpeg">
+</div>
+
 ## Setup
 
 The first thing to do is to clone the repository:
